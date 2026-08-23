@@ -27,8 +27,10 @@ padding: 0 20px;
 
 .header {
 background: #b8002a;
-height: 92px;
+height: 70px;
 width: 100%;
+position: relative;
+z-index: 10;
 }
 
 .header-inner {
@@ -38,25 +40,32 @@ align-items: center;
 justify-content: space-between;
 }
 
-/* Логотип + название */
+/* Логотип и название */
 
 .logo {
 display: flex;
 align-items: center;
-gap: 14px;
+gap: 16px;
 text-decoration: none;
 color: #fff;
 font-size: 28px;
 font-weight: 900;
 letter-spacing: -1px;
 white-space: nowrap;
+position: relative;
 }
 
+/* Сам логотип */
+
 .logo img {
-width: 58px;
-height: 58px;
-object-fit: contain;
+width: 85px;
+height: 85px;
+object-fit: cover;
+border-radius: 50%;
 display: block;
+position: relative;
+z-index: 20;
+background: #b8002a;
 }
 
 /* Меню */
@@ -272,6 +281,10 @@ font-size: 20px !important;
 font-weight: 700;
 }
 
+/* =========================
+КНОПКА 2ГИС
+========================= */
+
 .map-button {
 display: inline-flex;
 align-items: center;
@@ -287,7 +300,7 @@ font-weight: 800;
 }
 
 /* =========================
-VK
+КНОПКА VK
 ========================= */
 
 .vk-button {
@@ -305,7 +318,7 @@ font-weight: 800;
 }
 
 /* =========================
-ПОДВАЛ
+НИЖНЯЯ ПОЛОСА
 ========================= */
 
 .footer {
@@ -314,40 +327,37 @@ background: #b8002a;
 }
 
 /* =========================
-АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА
+ТЕЛЕФОН
 ========================= */
 
 @media (max-width: 800px) {
 
 ```
 .header {
-    height: auto;
-    min-height: 90px;
+    height: 80px;
 }
 
 .header-inner {
-    flex-direction: column;
-    justify-content: center;
-    gap: 18px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px;
+    gap: 12px;
 }
 
 .logo img {
-    width: 52px;
-    height: 52px;
+    width: 70px;
+    height: 70px;
 }
 
 .navigation {
-    gap: 20px;
+    gap: 18px;
 }
 
 .navigation a {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .hero {
@@ -363,7 +373,11 @@ background: #b8002a;
     font-size: 58px;
 }
 
-.features,
+.features {
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
 .contact-box {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -384,6 +398,47 @@ background: #b8002a;
 
 h2 {
     font-size: 42px;
+}
+```
+
+}
+
+/* =========================
+ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ
+========================= */
+
+@media (max-width: 500px) {
+
+```
+.header {
+    height: 75px;
+}
+
+.logo {
+    font-size: 18px;
+    gap: 8px;
+}
+
+.logo img {
+    width: 65px;
+    height: 65px;
+}
+
+.navigation {
+    gap: 10px;
+}
+
+.navigation a {
+    font-size: 9px;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
 }
 ```
 
