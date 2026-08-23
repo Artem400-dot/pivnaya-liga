@@ -1,3 +1,8 @@
+```css
+/* =========================
+   ОСНОВНЫЕ НАСТРОЙКИ
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,9 +21,8 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 40px;
 }
 
 
@@ -27,11 +31,10 @@ body {
 ========================= */
 
 .header {
-    width: 100%;
-    height: 96px;
-    background: #b8002a;
+    height: 105px;
+    background: #bd0030;
     position: relative;
-    z-index: 20;
+    z-index: 10;
 }
 
 .header-inner {
@@ -42,47 +45,41 @@ body {
 }
 
 
-/* ЛОГО + НАЗВАНИЕ */
+/* ЛОГО */
 
 .logo {
-    height: 100%;
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 18px;
     text-decoration: none;
     color: #fff;
-    position: relative;
+    height: 100%;
 }
 
 .logo-image {
-    width: 116px;
-    height: 116px;
-
+    width: 86px;
+    height: 86px;
     object-fit: cover;
-
     border-radius: 50%;
 
+    /* тонкая красная обводка */
+    border: 3px solid #bd0030;
+
+    /* белый тонкий контур между логотипом
+       и красной обводкой */
+    outline: 1px solid #fff;
+
+    /* логотип немного выпирает
+       за пределы полосы */
     position: relative;
-    z-index: 30;
-
-    background: #b8002a;
-
-    display: block;
-
-    /* логотип выступает за полосу */
-    margin-top: 0;
+    z-index: 2;
 }
 
 .logo-text {
-    color: #fff;
-
-    font-size: 38px;
+    font-size: 30px;
     font-weight: 900;
-
     line-height: 1;
-
-    letter-spacing: -1.5px;
-
     white-space: nowrap;
 }
 
@@ -94,24 +91,19 @@ body {
 .navigation {
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: 42px;
 }
 
 .navigation a {
     color: #fff;
-
     text-decoration: none;
-
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 800;
-
-    white-space: nowrap;
-
     transition: opacity 0.2s ease;
 }
 
 .navigation a:hover {
-    opacity: 0.65;
+    opacity: 0.7;
 }
 
 
@@ -120,45 +112,29 @@ body {
 ========================= */
 
 .hero {
-    padding: 110px 0 120px;
+    padding: 95px 0 110px;
 }
 
 .hero-inner {
     display: grid;
-
-    grid-template-columns: 1fr 1.12fr;
-
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
-
-    gap: 70px;
-}
-
-.hero-content {
-    padding-left: 5px;
 }
 
 .location-title {
-    color: #b8002a;
-
-    font-size: 17px;
-
+    color: #bd0030;
+    font-size: 16px;
     font-weight: 800;
-
     letter-spacing: 6px;
-
-    margin-bottom: 38px;
+    margin-bottom: 22px;
 }
 
 .hero h1 {
-    font-size: 92px;
-
-    line-height: 0.88;
-
+    font-size: 74px;
+    line-height: 0.95;
     font-weight: 900;
-
-    letter-spacing: -5px;
-
-    margin-bottom: 38px;
+    margin-bottom: 30px;
 }
 
 .hero h1 span {
@@ -166,79 +142,71 @@ body {
 }
 
 .hero h1 span:last-child {
-    color: #b8002a;
+    color: #bd0030;
 }
 
 .address {
-    font-size: 20px;
-
-    line-height: 1.5;
-
-    margin-bottom: 38px;
+    font-size: 18px;
+    margin-bottom: 32px;
 }
 
 .hero-buttons {
     display: flex;
-
-    align-items: center;
-
-    gap: 14px;
+    gap: 12px;
 }
 
 .btn {
-    min-height: 54px;
-
-    padding: 0 34px;
-
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
+    min-width: 160px;
+    height: 48px;
+    padding: 0 22px;
     text-decoration: none;
-
-    font-size: 14px;
-
+    font-size: 13px;
     font-weight: 800;
 }
 
 .btn-primary {
+    background: #bd0030;
     color: #fff;
-
-    background: #b8002a;
 }
 
 .btn-outline {
-    color: #b8002a;
-
-    border: 2px solid #b8002a;
-
+    color: #bd0030;
+    border: 1px solid #bd0030;
     background: #fff;
-}
-
-.btn-primary:hover,
-.btn-outline:hover {
-    opacity: 0.8;
-}
-
-
-/* =========================
-   ФОТО
-========================= */
-
-.hero-image {
-    width: 100%;
 }
 
 .hero-image img {
     width: 100%;
-
-    height: 580px;
-
     display: block;
+}
 
-    object-fit: cover;
+
+/* =========================
+   ОБЩИЕ СЕКЦИИ
+========================= */
+
+.about,
+.gallery-section,
+.contacts {
+    padding: 90px 0;
+}
+
+.section-label {
+    color: #bd0030;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 52px;
+    line-height: 1;
+    margin-bottom: 55px;
+    font-weight: 900;
 }
 
 
@@ -246,77 +214,37 @@ body {
    О МАГАЗИНЕ
 ========================= */
 
-.about {
-    padding: 110px 0;
-
-    background: #f7f7f7;
-}
-
-.section-label {
-    color: #b8002a;
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 58px;
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    margin-bottom: 60px;
-}
-
 .features {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 60px;
+    gap: 50px;
 }
 
 .feature-icon {
-    color: #b8002a;
-
-    font-size: 34px;
-
+    width: 42px;
+    height: 42px;
+    margin-bottom: 22px;
+    color: #bd0030;
+    font-size: 30px;
     font-weight: 900;
-
-    margin-bottom: 20px;
 }
 
 .feature h3 {
-    font-size: 23px;
-
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 16px;
 }
 
 .feature p {
-    color: #555;
-
     font-size: 16px;
-
-    line-height: 1.65;
+    line-height: 1.6;
 }
 
 .feature-link {
     display: inline-block;
-
     margin-top: 22px;
-
-    color: #b8002a;
-
+    color: #bd0030;
     text-decoration: none;
-
     font-size: 13px;
-
     font-weight: 800;
 }
 
@@ -325,32 +253,22 @@ h2 {
    ГАЛЕРЕЯ
 ========================= */
 
-.gallery-section {
-    padding: 110px 0;
-}
-
 .gallery {
     display: grid;
-
     grid-template-columns: 2fr 1fr;
-
-    gap: 20px;
+    gap: 18px;
 }
 
 .gallery img {
     width: 100%;
-
-    height: 300px;
-
+    height: 280px;
     object-fit: cover;
-
     display: block;
 }
 
 .gallery-main {
     grid-row: span 2;
-
-    height: 620px !important;
+    height: 578px !important;
 }
 
 
@@ -359,240 +277,104 @@ h2 {
 ========================= */
 
 .contacts {
-    padding: 110px 0;
-
     background: #f7f7f7;
 }
 
 .contact-box {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 60px;
+    gap: 70px;
+    align-items: start;
 }
 
 .contact-item h3 {
-    font-size: 22px;
-
-    margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 18px;
 }
 
 .contact-item p {
-    font-size: 17px;
-
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 22px;
 }
 
 .phone {
-    font-size: 21px !important;
-
+    font-size: 20px !important;
     font-weight: 700;
 }
 
 
-/* =========================
-   КНОПКА 2ГИС
-========================= */
+/* КНОПКИ 2ГИС И ВК */
 
 .map-button {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
-    min-height: 48px;
+    height: 45px;
+    padding: 0 22px;
 
-    margin-top: 20px;
-
-    padding: 0 24px;
-
-    background: #b8002a;
-
+    background: #bd0030;
     color: #fff;
 
     text-decoration: none;
 
     font-size: 12px;
-
     font-weight: 800;
+
+    transition: background 0.2s ease;
+}
+
+.map-button:hover {
+    background: #990026;
 }
 
 
 /* =========================
-   КНОПКА VK
-========================= */
-
-.vk-button {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 48px;
-
-    margin-top: 18px;
-
-    padding: 0 24px;
-
-    background: #b8002a;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: 12px;
-
-    font-weight: 800;
-}
-
-.map-button:hover,
-.vk-button:hover {
-    opacity: 0.8;
-}
-
-
-/* =========================
-   НИЖНЯЯ ПОЛОСА
+   ПОДВАЛ
 ========================= */
 
 .footer {
-    width: 100%;
-
     height: 80px;
-
-    background: #b8002a;
+    background: #bd0030;
 }
 
 
 /* =========================
-   ПЛАНШЕТ
+   АДАПТИВ
 ========================= */
 
 @media (max-width: 900px) {
 
     .container {
-        padding: 0 25px;
-    }
-
-    .header {
-        height: 85px;
-    }
-
-    .logo-image {
-        width: 100px;
-        height: 100px;
-    }
-
-    .logo-text {
-        font-size: 30px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .navigation {
-        gap: 22px;
+        gap: 20px;
     }
 
-    .navigation a {
-        font-size: 12px;
+    .logo-text {
+        font-size: 24px;
     }
 
-    .hero {
-        padding: 80px 0;
+    .logo-image {
+        width: 72px;
+        height: 72px;
     }
 
     .hero-inner {
         grid-template-columns: 1fr;
-
-        gap: 50px;
-    }
-
-    .hero h1 {
-        font-size: 75px;
-    }
-
-    .hero-image img {
-        height: 450px;
     }
 
     .features {
         grid-template-columns: 1fr;
-        gap: 45px;
     }
 
     .contact-box {
         grid-template-columns: 1fr;
-        gap: 45px;
-    }
-}
-
-
-/* =========================
-   ТЕЛЕФОН
-========================= */
-
-@media (max-width: 600px) {
-
-    .container {
-        padding: 0 18px;
-    }
-
-    .header {
-        height: 75px;
-    }
-
-    .header-inner {
-        justify-content: center;
-    }
-
-    .logo {
-        gap: 12px;
-    }
-
-    .logo-image {
-        width: 82px;
-        height: 82px;
-    }
-
-    .logo-text {
-        font-size: 22px;
-    }
-
-    .navigation {
-        display: none;
-    }
-
-    .hero {
-        padding: 65px 0;
-    }
-
-    .location-title {
-        font-size: 13px;
-        letter-spacing: 4px;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-        letter-spacing: -3px;
-    }
-
-    .address {
-        font-size: 16px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-    .hero-image img {
-        height: 350px;
-    }
-
-    h2 {
-        font-size: 42px;
+        gap: 40px;
     }
 
     .gallery {
@@ -600,12 +382,56 @@ h2 {
     }
 
     .gallery-main {
-        grid-row: auto;
-
         height: 350px !important;
+        grid-row: auto;
     }
 
     .gallery img {
-        height: 280px;
+        height: 300px;
     }
+
 }
+
+
+@media (max-width: 650px) {
+
+    .header {
+        height: 90px;
+    }
+
+    .header-inner {
+        justify-content: center;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .logo-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .logo-text {
+        font-size: 22px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+```
