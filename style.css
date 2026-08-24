@@ -1,4 +1,3 @@
-```css
 /* =========================
    ОСНОВНЫЕ НАСТРОЙКИ
 ========================= */
@@ -163,7 +162,9 @@ a {
 }
 
 
-/* КНОПКИ ГЛАВНОГО ЭКРАНА */
+/* =========================
+   КНОПКИ ГЛАВНОГО ЭКРАНА
+========================= */
 
 .hero-buttons {
     display: flex;
@@ -209,7 +210,9 @@ a {
 }
 
 
-/* ФОТО ГЛАВНОГО ЭКРАНА */
+/* =========================
+   ФОТО ГЛАВНОГО ЭКРАНА
+========================= */
 
 .hero-image img {
     width: 100%;
@@ -267,43 +270,73 @@ h2 {
 }
 
 
-/* ПРЯМОУГОЛЬНАЯ КАРТОЧКА */
+/* СТИЛЬНАЯ ПРЯМОУГОЛЬНАЯ КАРТОЧКА */
 
 .feature {
+    position: relative;
+
     width: 100%;
     min-height: 270px;
 
-    padding: 35px 30px;
+    padding: 38px 30px 32px;
 
     background: #fff;
 
-    border: 2px solid #d8d8d8;
+    border: 1px solid #d8d8d8;
+    border-top: 4px solid #c90032;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+
+    overflow: hidden;
 
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
-/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
+/* ДЕКОРАТИВНАЯ ЛИНИЯ ВНИЗУ */
+
+.feature::after {
+    content: "";
+
+    position: absolute;
+
+    left: 30px;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #c90032;
+
+    transition: width 0.3s ease;
+}
+
+
+/* НАВЕДЕНИЕ */
 
 .feature:hover {
-    transform: translateY(-4px);
+    transform: translateY(-7px);
 
     border-color: #c90032;
 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.feature:hover::after {
+    width: calc(100% - 60px);
 }
 
 
-/* ИКОНКА */
+/* =========================
+   ИКОНКИ КАРТОЧЕК
+========================= */
 
 .feature-icon {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
 
     margin-bottom: 25px;
 
@@ -314,14 +347,34 @@ h2 {
 
     color: #c90032;
 
-    font-size: 25px;
-    font-weight: 900;
+    background: #fff;
 
     border: 2px solid #c90032;
+
+    font-size: 24px;
+    font-weight: 900;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
 
-/* ЗАГОЛОВОК КАРТОЧКИ */
+/* ИКОНКА ПРИ НАВЕДЕНИИ */
+
+.feature:hover .feature-icon {
+    color: #fff;
+
+    background: #c90032;
+
+    transform: rotate(3deg);
+}
+
+
+/* =========================
+   ЗАГОЛОВОК КАРТОЧКИ
+========================= */
 
 .feature h3 {
     margin: 0 0 15px;
@@ -333,7 +386,9 @@ h2 {
 }
 
 
-/* ТЕКСТ КАРТОЧКИ */
+/* =========================
+   ТЕКСТ КАРТОЧКИ
+========================= */
 
 .feature p {
     margin: 0 0 20px;
@@ -345,7 +400,9 @@ h2 {
 }
 
 
-/* ССЫЛКА */
+/* =========================
+   КНОПКА АССОРТИМЕНТА
+========================= */
 
 .feature-button {
     display: inline-block;
@@ -357,11 +414,15 @@ h2 {
     font-size: 13px;
     font-weight: 900;
 
-    transition: opacity 0.2s ease;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .feature-button:hover {
-    opacity: 0.7;
+    color: #a90029;
+
+    transform: translateX(4px);
 }
 
 
@@ -480,6 +541,8 @@ h2 {
         width: min(100% - 30px, 700px);
     }
 
+    /* ШАПКА */
+
     .header {
         height: auto;
 
@@ -504,6 +567,9 @@ h2 {
         justify-content: center;
     }
 
+
+    /* ГЛАВНЫЙ ЭКРАН */
+
     .hero {
         padding: 70px 0;
     }
@@ -522,7 +588,8 @@ h2 {
         height: 350px;
     }
 
-    /* КАРТОЧКИ НА ТЕЛЕФОНЕ */
+
+    /* КАРТОЧКИ */
 
     .features {
         grid-template-columns: 1fr;
@@ -532,7 +599,10 @@ h2 {
 
     .feature {
         min-height: 220px;
+
+        padding: 32px 25px;
     }
+
 
     /* ГАЛЕРЕЯ */
 
@@ -548,6 +618,7 @@ h2 {
         height: 250px;
     }
 
+
     /* КОНТАКТЫ */
 
     .contact-box {
@@ -556,8 +627,10 @@ h2 {
         gap: 45px;
     }
 
+
+    /* ЗАГОЛОВКИ */
+
     h2 {
         font-size: 40px;
     }
 }
-```
