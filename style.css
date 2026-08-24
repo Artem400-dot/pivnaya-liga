@@ -4,9 +4,9 @@
 ========================= */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -15,14 +15,15 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #111;
-    background: #fff;
+    color: #111111;
+    background: #ffffff;
 }
 
 .container {
     width: 100%;
-    max-width: 1080px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 30px;
 }
 
 
@@ -31,10 +32,10 @@ body {
 ========================= */
 
 .header {
-    height: 105px;
-    background: #bd0030;
+    background: #c4002f;
+    height: 80px;
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 .header-inner {
@@ -45,65 +46,69 @@ body {
 }
 
 
-/* ЛОГО */
+/* ЛОГОТИП */
 
 .logo {
-    position: relative;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 20px;
+
     text-decoration: none;
-    color: #fff;
-    height: 100%;
+
+    position: relative;
+    z-index: 110;
 }
 
 .logo-image {
-    width: 86px;
-    height: 86px;
+    width: 110px;
+    height: 110px;
+
     object-fit: cover;
+
     border-radius: 50%;
 
-    /* тонкая красная обводка */
-    border: 3px solid #bd0030;
+    border: 2px solid #c4002f;
 
-    /* белый тонкий контур между логотипом
-       и красной обводкой */
-    outline: 1px solid #fff;
+    background: #c4002f;
 
-    /* логотип немного выпирает
-       за пределы полосы */
-    position: relative;
-    z-index: 2;
+    flex-shrink: 0;
+
+    display: block;
 }
 
 .logo-text {
-    font-size: 30px;
+    color: #ffffff;
+
+    font-size: 34px;
     font-weight: 900;
+
     line-height: 1;
+
     white-space: nowrap;
 }
 
 
-/* =========================
-   НАВИГАЦИЯ
-========================= */
+/* МЕНЮ */
 
 .navigation {
     display: flex;
     align-items: center;
-    gap: 42px;
+    gap: 40px;
 }
 
 .navigation a {
-    color: #fff;
+    color: #ffffff;
+
     text-decoration: none;
+
     font-size: 14px;
     font-weight: 800;
+
     transition: opacity 0.2s ease;
 }
 
 .navigation a:hover {
-    opacity: 0.7;
+    opacity: 0.75;
 }
 
 
@@ -112,29 +117,39 @@ body {
 ========================= */
 
 .hero {
-    padding: 95px 0 110px;
+    background: #ffffff;
+    padding: 100px 0 110px;
 }
 
 .hero-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
     align-items: center;
+    gap: 80px;
+}
+
+.hero-content {
+    min-width: 0;
 }
 
 .location-title {
-    color: #bd0030;
+    color: #c4002f;
+
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 900;
+
     letter-spacing: 6px;
-    margin-bottom: 22px;
+
+    margin-bottom: 28px;
 }
 
 .hero h1 {
-    font-size: 74px;
-    line-height: 0.95;
+    font-size: 72px;
+    line-height: 0.92;
+
     font-weight: 900;
-    margin-bottom: 30px;
+
+    margin-bottom: 35px;
 }
 
 .hero h1 span {
@@ -142,45 +157,74 @@ body {
 }
 
 .hero h1 span:last-child {
-    color: #bd0030;
+    color: #c4002f;
 }
 
 .address {
-    font-size: 18px;
-    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 1.6;
+
+    margin-bottom: 30px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 160px;
+
+    min-width: 155px;
     height: 48px;
+
     padding: 0 22px;
+
     text-decoration: none;
+
     font-size: 13px;
     font-weight: 800;
+
+    transition: 0.2s ease;
 }
 
 .btn-primary {
-    background: #bd0030;
-    color: #fff;
+    color: #ffffff;
+    background: #c4002f;
+}
+
+.btn-primary:hover {
+    background: #a90029;
 }
 
 .btn-outline {
-    color: #bd0030;
-    border: 1px solid #bd0030;
-    background: #fff;
+    color: #c4002f;
+    background: #ffffff;
+
+    border: 1px solid #c4002f;
+}
+
+.btn-outline:hover {
+    background: #c4002f;
+    color: #ffffff;
+}
+
+
+/* ФОТО НА ГЛАВНОМ ЭКРАНЕ */
+
+.hero-image {
+    width: 100%;
 }
 
 .hero-image img {
-    width: 100%;
     display: block;
+
+    width: 100%;
+    height: 420px;
+
+    object-fit: cover;
 }
 
 
@@ -191,22 +235,31 @@ body {
 .about,
 .gallery-section,
 .contacts {
-    padding: 90px 0;
+    padding: 100px 0;
+}
+
+.about {
+    background: #f7f7f7;
 }
 
 .section-label {
-    color: #bd0030;
-    font-size: 14px;
-    font-weight: 800;
+    color: #c4002f;
+
+    font-size: 13px;
+    font-weight: 900;
+
     letter-spacing: 5px;
+
     margin-bottom: 20px;
 }
 
-h2 {
+section h2 {
     font-size: 52px;
     line-height: 1;
-    margin-bottom: 55px;
+
     font-weight: 900;
+
+    margin-bottom: 55px;
 }
 
 
@@ -217,35 +270,47 @@ h2 {
 .features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 60px;
 }
 
 .feature-icon {
-    width: 42px;
-    height: 42px;
-    margin-bottom: 22px;
-    color: #bd0030;
+    color: #c4002f;
+
     font-size: 30px;
     font-weight: 900;
+
+    margin-bottom: 25px;
 }
 
 .feature h3 {
-    font-size: 22px;
-    margin-bottom: 16px;
+    font-size: 21px;
+    font-weight: 800;
+
+    margin-bottom: 15px;
 }
 
 .feature p {
     font-size: 16px;
     line-height: 1.6;
+
+    max-width: 300px;
 }
 
 .feature-link {
     display: inline-block;
-    margin-top: 22px;
-    color: #bd0030;
-    text-decoration: none;
+
+    margin-top: 20px;
+
+    color: #c4002f;
+
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 900;
+
+    text-decoration: none;
+}
+
+.feature-link:hover {
+    text-decoration: underline;
 }
 
 
@@ -255,20 +320,24 @@ h2 {
 
 .gallery {
     display: grid;
+
     grid-template-columns: 2fr 1fr;
-    gap: 18px;
+    grid-template-rows: 260px 260px;
+
+    gap: 15px;
 }
 
 .gallery img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
     display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 }
 
 .gallery-main {
     grid-row: span 2;
-    height: 578px !important;
 }
 
 
@@ -277,161 +346,221 @@ h2 {
 ========================= */
 
 .contacts {
-    background: #f7f7f7;
+    background: #ffffff;
 }
 
 .contact-box {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 70px;
+
+    column-gap: 80px;
+    row-gap: 55px;
+
     align-items: start;
 }
 
 .contact-item h3 {
     font-size: 20px;
+    font-weight: 800;
+
     margin-bottom: 18px;
 }
 
 .contact-item p {
     font-size: 16px;
     line-height: 1.7;
-    margin-bottom: 22px;
 }
 
-.phone {
-    font-size: 20px !important;
-    font-weight: 700;
+.contact-item .phone {
+    font-size: 20px;
+    font-weight: 800;
 }
-
-
-/* КНОПКИ 2ГИС И ВК */
 
 .map-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
-    height: 45px;
-    padding: 0 22px;
+    margin-top: 20px;
 
-    background: #bd0030;
-    color: #fff;
+    min-width: 160px;
+    height: 45px;
+
+    padding: 0 20px;
+
+    background: #c4002f;
+    color: #ffffff;
 
     text-decoration: none;
 
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 900;
 
-    transition: background 0.2s ease;
+    transition: 0.2s ease;
 }
 
 .map-button:hover {
-    background: #990026;
+    background: #a90029;
+}
+
+
+/* Режим работы находится под адресом */
+
+.contact-item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
 }
 
 
 /* =========================
-   ПОДВАЛ
+   НИЖНЯЯ ПОЛОСА
 ========================= */
 
 .footer {
-    height: 80px;
-    background: #bd0030;
+    height: 70px;
+    background: #c4002f;
 }
 
 
 /* =========================
-   АДАПТИВ
+   АДАПТИВНОСТЬ
 ========================= */
 
 @media (max-width: 900px) {
 
-    .container {
-        padding-left: 25px;
-        padding-right: 25px;
+    .header {
+        height: 85px;
+    }
+
+    .logo-image {
+        width: 95px;
+        height: 95px;
+    }
+
+    .logo-text {
+        font-size: 28px;
     }
 
     .navigation {
         gap: 20px;
     }
 
-    .logo-text {
-        font-size: 24px;
-    }
-
-    .logo-image {
-        width: 72px;
-        height: 72px;
+    .navigation a {
+        font-size: 12px;
     }
 
     .hero-inner {
         grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hero-image img {
+        height: 350px;
     }
 
     .features {
         grid-template-columns: 1fr;
+        gap: 45px;
     }
 
     .contact-box {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .gallery {
-        grid-template-columns: 1fr;
+    .contact-item:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
     }
-
-    .gallery-main {
-        height: 350px !important;
-        grid-row: auto;
-    }
-
-    .gallery img {
-        height: 300px;
-    }
-
 }
 
 
 @media (max-width: 650px) {
 
+    .container {
+        padding: 0 20px;
+    }
+
     .header {
-        height: 90px;
+        height: auto;
+        min-height: 80px;
     }
 
     .header-inner {
-        justify-content: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .logo {
+        gap: 12px;
+    }
+
+    .logo-image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .logo-text {
+        font-size: 21px;
     }
 
     .navigation {
         display: none;
     }
 
-    .logo-image {
-        width: 70px;
-        height: 70px;
-    }
-
-    .logo-text {
-        font-size: 22px;
-    }
-
     .hero {
-        padding: 60px 0;
+        padding: 80px 0;
     }
 
     .hero h1 {
-        font-size: 52px;
+        font-size: 55px;
     }
 
-    h2 {
-        font-size: 40px;
+    .hero-image img {
+        height: 280px;
+    }
+
+    .about,
+    .gallery-section,
+    .contacts {
+        padding: 75px 0;
+    }
+
+    section h2 {
+        font-size: 42px;
+    }
+
+    .gallery {
+        display: grid;
+
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+
+        gap: 15px;
+    }
+
+    .gallery-main {
+        grid-row: auto;
+    }
+
+    .gallery img {
+        height: 280px;
+    }
+
+    .contact-box {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .contact-item:nth-child(3) {
+        grid-column: auto;
+        grid-row: auto;
     }
 
     .hero-buttons {
         flex-direction: column;
         align-items: flex-start;
     }
-
 }
 ```
