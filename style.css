@@ -1,11 +1,8 @@
-```css
 /* =========================
    ОСНОВНЫЕ НАСТРОЙКИ
 ========================= */
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -14,14 +11,18 @@ html {
 }
 
 body {
+    margin: 0;
+    padding: 0;
+
     font-family: Arial, Helvetica, sans-serif;
+
     color: #111;
     background: #fff;
 }
 
 img {
-    display: block;
     max-width: 100%;
+    display: block;
 }
 
 a {
@@ -29,9 +30,13 @@ a {
     color: inherit;
 }
 
+
+/* =========================
+   КОНТЕЙНЕР
+========================= */
+
 .container {
-    width: 100%;
-    max-width: 1200px;
+    width: min(1100px, calc(100% - 60px));
     margin: 0 auto;
 }
 
@@ -41,19 +46,23 @@ a {
 ========================= */
 
 .header {
-    width: 100%;
-    height: 135px;
     background: #c90032;
+    height: 120px;
+
     display: flex;
     align-items: center;
 }
 
 .header-inner {
     height: 100%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+
+/* ЛОГОТИП БЕЗ КАРТИНКИ */
 
 .logo {
     display: flex;
@@ -62,26 +71,34 @@ a {
 
 .logo-text {
     color: #fff;
-    font-size: 38px;
+
+    font-size: 34px;
     font-weight: 900;
+
     letter-spacing: -1px;
 }
+
+
+/* МЕНЮ */
 
 .navigation {
     display: flex;
     align-items: center;
-    gap: 55px;
+
+    gap: 48px;
 }
 
 .navigation a {
     color: #fff;
-    font-size: 15px;
+
+    font-size: 14px;
     font-weight: 800;
+
     transition: opacity 0.2s ease;
 }
 
 .navigation a:hover {
-    opacity: 0.75;
+    opacity: 0.7;
 }
 
 
@@ -90,34 +107,43 @@ a {
 ========================= */
 
 .hero {
-    padding: 120px 0 115px;
+    padding: 110px 0 100px;
 }
 
 .hero-inner {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+
     align-items: center;
+
+    gap: 70px;
 }
 
 .hero-content {
-    padding-left: 0;
+    max-width: 520px;
 }
 
 .location-title {
+    margin-bottom: 28px;
+
     color: #c90032;
-    font-size: 16px;
+
+    font-size: 15px;
     font-weight: 900;
-    letter-spacing: 5px;
-    margin-bottom: 30px;
+
+    letter-spacing: 6px;
 }
 
 .hero h1 {
-    font-size: 68px;
-    line-height: 0.9;
+    margin: 0 0 28px;
+
+    font-size: 64px;
+    line-height: 0.95;
+
     font-weight: 900;
+
     letter-spacing: -2px;
-    margin-bottom: 28px;
 }
 
 .hero h1 span {
@@ -129,10 +155,14 @@ a {
 }
 
 .address {
-    font-size: 17px;
+    margin: 0 0 32px;
+
+    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 30px;
 }
+
+
+/* КНОПКИ */
 
 .hero-buttons {
     display: flex;
@@ -141,12 +171,18 @@ a {
 
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
-    min-height: 48px;
-    padding: 0 25px;
-    font-size: 14px;
-    font-weight: 800;
+
+    min-height: 42px;
+
+    padding: 0 28px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    transition: 0.2s ease;
 }
 
 .btn-primary {
@@ -154,19 +190,28 @@ a {
     background: #c90032;
 }
 
-.btn-outline {
-    color: #c90032;
-    border: 1px solid #c90032;
-    background: #fff;
+.btn-primary:hover {
+    background: #a90029;
 }
 
-.btn:hover {
-    opacity: 0.85;
+.btn-outline {
+    color: #c90032;
+
+    border: 1px solid #c90032;
 }
+
+.btn-outline:hover {
+    color: #fff;
+    background: #c90032;
+}
+
+
+/* ФОТО */
 
 .hero-image img {
     width: 100%;
-    height: 410px;
+    height: 420px;
+
     object-fit: cover;
 }
 
@@ -176,54 +221,69 @@ a {
 ========================= */
 
 .about {
-    padding: 105px 0;
+    padding: 100px 0;
+
     background: #f7f7f7;
 }
 
 .section-label {
+    margin-bottom: 20px;
+
     color: #c90032;
-    font-size: 15px;
+
+    font-size: 13px;
     font-weight: 900;
+
     letter-spacing: 5px;
-    margin-bottom: 28px;
 }
 
 h2 {
-    font-size: 52px;
+    margin: 0 0 60px;
+
+    font-size: 48px;
     line-height: 1;
+
     font-weight: 900;
+
     letter-spacing: -1px;
-    margin-bottom: 65px;
 }
 
 .features {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 65px;
+
+    gap: 60px;
 }
 
 .feature-icon {
+    margin-bottom: 25px;
+
     color: #c90032;
-    font-size: 30px;
+
+    font-size: 32px;
     font-weight: 900;
-    margin-bottom: 20px;
 }
 
 .feature h3 {
+    margin: 0 0 16px;
+
     font-size: 21px;
-    margin-bottom: 15px;
 }
 
 .feature p {
+    margin: 0 0 25px;
+
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
 
-.feature-link {
+.feature-button {
     display: inline-block;
+
     color: #c90032;
-    font-size: 14px;
+
+    font-size: 13px;
     font-weight: 900;
 }
 
@@ -233,25 +293,28 @@ h2 {
 ========================= */
 
 .gallery-section {
-    padding: 110px 0;
-    background: #fff;
+    padding: 100px 0;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 260px 260px;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
     gap: 15px;
 }
 
 .gallery img {
     width: 100%;
-    height: 100%;
+    height: 260px;
+
     object-fit: cover;
 }
 
 .gallery-main {
-    grid-row: 1 / 3;
+    height: 535px !important;
+
+    grid-row: span 2;
 }
 
 
@@ -260,48 +323,59 @@ h2 {
 ========================= */
 
 .contacts {
-    padding: 110px 0 120px;
-    background: #f7f7f7;
+    padding: 100px 0;
 }
 
 .contact-box {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    align-items: start;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 80px;
 }
 
 .contact-item h3 {
-    font-size: 21px;
-    margin-bottom: 18px;
+    margin: 0 0 20px;
+
+    font-size: 20px;
 }
 
 .contact-item p {
-    font-size: 17px;
-    line-height: 1.6;
-    margin-bottom: 22px;
+    margin: 0 0 25px;
+
+    font-size: 16px;
+    line-height: 1.7;
 }
 
-.contact-item .phone {
-    font-size: 21px;
-    font-weight: 800;
+.phone {
+    font-size: 21px !important;
+    font-weight: 700;
 }
+
+
+/* КНОПКА 2ГИС / VK */
 
 .map-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     min-height: 45px;
+
     padding: 0 22px;
+
     color: #fff;
     background: #c90032;
+
     font-size: 13px;
     font-weight: 900;
-    transition: opacity 0.2s ease;
+
+    transition: 0.2s ease;
 }
 
 .map-button:hover {
-    opacity: 0.8;
+    background: #a90029;
 }
 
 
@@ -311,37 +385,39 @@ h2 {
 
 .footer {
     height: 70px;
+
     background: #c90032;
 }
 
 
 /* =========================
-   АДАПТИВ
+   АДАПТАЦИЯ
 ========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 
     .container {
-        width: calc(100% - 40px);
+        width: min(100% - 30px, 600px);
     }
 
     .header {
         height: auto;
-        min-height: 100px;
+
         padding: 25px 0;
     }
 
     .header-inner {
         flex-direction: column;
+
         gap: 25px;
     }
 
     .logo-text {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .navigation {
-        gap: 25px;
+        gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -352,11 +428,12 @@ h2 {
 
     .hero-inner {
         grid-template-columns: 1fr;
+
         gap: 50px;
     }
 
     .hero h1 {
-        font-size: 55px;
+        font-size: 52px;
     }
 
     .hero-image img {
@@ -365,70 +442,29 @@ h2 {
 
     .features {
         grid-template-columns: 1fr;
+
         gap: 45px;
     }
 
     .gallery {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
     }
 
     .gallery-main {
-        grid-row: auto;
+        height: 350px !important;
     }
 
     .gallery img {
-        height: 300px;
+        height: 250px;
     }
 
     .contact-box {
         grid-template-columns: 1fr;
+
         gap: 45px;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .container {
-        width: calc(100% - 30px);
-    }
-
-    .logo-text {
-        font-size: 26px;
-    }
-
-    .navigation {
-        gap: 18px;
-    }
-
-    .navigation a {
-        font-size: 12px;
-    }
-
-    .hero h1 {
-        font-size: 46px;
     }
 
     h2 {
         font-size: 40px;
     }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .hero-image img {
-        height: 280px;
-    }
-
-    .gallery img {
-        height: 240px;
-    }
 }
-```
