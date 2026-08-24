@@ -4,6 +4,8 @@
 ========================= */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -12,16 +14,14 @@ html {
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: #111;
     background: #fff;
 }
 
 img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
 }
 
 a {
@@ -29,13 +29,9 @@ a {
     color: inherit;
 }
 
-
-/* =========================
-   КОНТЕЙНЕР
-========================= */
-
 .container {
-    width: min(1200px, calc(100% - 40px));
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -45,11 +41,11 @@ a {
 ========================= */
 
 .header {
-    position: relative;
-    z-index: 100;
-    height: 115px;
-    background: #c40032;
-    overflow: visible;
+    width: 100%;
+    height: 135px;
+    background: #c90032;
+    display: flex;
+    align-items: center;
 }
 
 .header-inner {
@@ -57,78 +53,24 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
 }
-
-
-/* =========================
-   ЛОГОТИП
-========================= */
 
 .logo {
-    position: relative;
     display: flex;
     align-items: center;
-    gap: 22px;
-
-    /* смещаем логотип и надпись левее */
-    margin-left: -25px;
-
-    height: 100%;
-    z-index: 10;
-}
-
-.logo-image {
-    width: 115px;
-    height: 115px;
-
-    object-fit: cover;
-
-    /*
-       Круглая форма скрывает прямоугольный
-       фон исходной картинки.
-    */
-    border-radius: 50%;
-    clip-path: circle(50% at 50% 50%);
-
-    /*
-       Тонкая аккуратная красная линия
-    */
-    border: 3px solid #c40032;
-
-    /*
-       Небольшая белая прослойка,
-       чтобы логотип красиво отделялся
-       от красной полосы.
-    */
-    outline: 2px solid #fff;
-
-    background: #c40032;
-
-    /*
-       Логотип немного выпирает
-       за пределы полосы.
-    */
-    transform: translateY(-2px);
 }
 
 .logo-text {
     color: #fff;
-    font-size: 34px;
+    font-size: 38px;
     font-weight: 900;
-    line-height: 1;
-    white-space: nowrap;
+    letter-spacing: -1px;
 }
-
-
-/* =========================
-   НАВИГАЦИЯ
-========================= */
 
 .navigation {
     display: flex;
     align-items: center;
-    gap: 42px;
+    gap: 55px;
 }
 
 .navigation a {
@@ -148,30 +90,34 @@ a {
 ========================= */
 
 .hero {
-    padding: 110px 0 100px;
-    background: #fff;
+    padding: 120px 0 115px;
 }
 
 .hero-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
     gap: 70px;
+    align-items: center;
 }
 
-.location-title,
-.section-label {
-    color: #c40032;
-    font-size: 15px;
+.hero-content {
+    padding-left: 0;
+}
+
+.location-title {
+    color: #c90032;
+    font-size: 16px;
     font-weight: 900;
     letter-spacing: 5px;
+    margin-bottom: 30px;
 }
 
 .hero h1 {
-    margin: 30px 0 20px;
-    font-size: 64px;
-    line-height: 0.95;
+    font-size: 68px;
+    line-height: 0.9;
     font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 28px;
 }
 
 .hero h1 span {
@@ -179,42 +125,48 @@ a {
 }
 
 .hero h1 span:last-child {
-    color: #c40032;
+    color: #c90032;
 }
 
 .address {
-    font-size: 16px;
-    margin: 25px 0 30px;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 42px;
-    padding: 0 28px;
-    font-size: 13px;
-    font-weight: 900;
+    min-height: 48px;
+    padding: 0 25px;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .btn-primary {
     color: #fff;
-    background: #c40032;
+    background: #c90032;
 }
 
 .btn-outline {
-    color: #c40032;
-    border: 1px solid #c40032;
+    color: #c90032;
+    border: 1px solid #c90032;
+    background: #fff;
+}
+
+.btn:hover {
+    opacity: 0.85;
 }
 
 .hero-image img {
     width: 100%;
-    height: 430px;
+    height: 410px;
     object-fit: cover;
 }
 
@@ -224,16 +176,54 @@ a {
 ========================= */
 
 .about {
-    padding: 90px 0;
+    padding: 105px 0;
     background: #f7f7f7;
 }
 
-.about h2,
-.gallery-section h2,
-.contacts h2 {
-    margin: 25px 0 55px;
+.section-label {
+    color: #c90032;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 28px;
+}
+
+h2 {
     font-size: 52px;
     line-height: 1;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 65px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 65px;
+}
+
+.feature-icon {
+    color: #c90032;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.feature-link {
+    display: inline-block;
+    color: #c90032;
+    font-size: 14px;
     font-weight: 900;
 }
 
@@ -243,25 +233,25 @@ a {
 ========================= */
 
 .gallery-section {
-    padding: 100px 0;
+    padding: 110px 0;
     background: #fff;
 }
 
 .gallery {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 20px;
+    grid-template-rows: 260px 260px;
+    gap: 15px;
 }
 
 .gallery img {
     width: 100%;
-    height: 300px;
+    height: 100%;
     object-fit: cover;
 }
 
 .gallery-main {
-    grid-row: span 2;
-    height: 620px !important;
+    grid-row: 1 / 3;
 }
 
 
@@ -270,29 +260,30 @@ a {
 ========================= */
 
 .contacts {
-    padding: 100px 0;
+    padding: 110px 0 120px;
     background: #f7f7f7;
 }
 
 .contact-box {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
+    align-items: start;
 }
 
 .contact-item h3 {
-    margin: 0 0 20px;
-    font-size: 20px;
+    font-size: 21px;
+    margin-bottom: 18px;
 }
 
 .contact-item p {
-    margin: 0 0 25px;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
+    margin-bottom: 22px;
 }
 
-.phone {
-    font-size: 20px !important;
+.contact-item .phone {
+    font-size: 21px;
     font-weight: 800;
 }
 
@@ -302,10 +293,15 @@ a {
     justify-content: center;
     min-height: 45px;
     padding: 0 22px;
-    background: #c40032;
     color: #fff;
+    background: #c90032;
     font-size: 13px;
     font-weight: 900;
+    transition: opacity 0.2s ease;
+}
+
+.map-button:hover {
+    opacity: 0.8;
 }
 
 
@@ -314,29 +310,88 @@ a {
 ========================= */
 
 .footer {
-    height: 90px;
-    background: #c40032;
+    height: 70px;
+    background: #c90032;
 }
 
 
 /* =========================
-   АДАПТАЦИЯ
+   АДАПТИВ
 ========================= */
 
 @media (max-width: 900px) {
 
+    .container {
+        width: calc(100% - 40px);
+    }
+
     .header {
-        height: 100px;
+        height: auto;
+        min-height: 100px;
+        padding: 25px 0;
     }
 
-    .logo {
-        margin-left: 0;
-        gap: 12px;
+    .header-inner {
+        flex-direction: column;
+        gap: 25px;
     }
 
-    .logo-image {
-        width: 100px;
-        height: 100px;
+    .logo-text {
+        font-size: 30px;
+    }
+
+    .navigation {
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .hero-image img {
+        height: 350px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .gallery-main {
+        grid-row: auto;
+    }
+
+    .gallery img {
+        height: 300px;
+    }
+
+    .contact-box {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 30px);
     }
 
     .logo-text {
@@ -351,58 +406,29 @@ a {
         font-size: 12px;
     }
 
-    .hero-inner {
-        grid-template-columns: 1fr;
-    }
-
     .hero h1 {
-        font-size: 50px;
+        font-size: 46px;
     }
 
-    .contact-box {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .container {
-        width: min(100% - 24px, 1200px);
+    h2 {
+        font-size: 40px;
     }
 
-    .header {
-        height: 85px;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .logo-image {
-        width: 85px;
-        height: 85px;
+    .btn {
+        width: 100%;
     }
 
-    .logo-text {
-        font-size: 21px;
+    .hero-image img {
+        height: 280px;
     }
 
-    .navigation {
-        display: none;
-    }
-
-    .hero {
-        padding: 70px 0;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-main {
-        height: 300px !important;
+    .gallery img {
+        height: 240px;
     }
 }
 ```
