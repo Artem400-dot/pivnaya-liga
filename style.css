@@ -63,7 +63,7 @@ a {
 }
 
 
-/* НАЗВАНИЕ */
+/* НАЗВАНИЕ САЙТА */
 
 .logo {
     display: flex;
@@ -163,7 +163,7 @@ a {
 }
 
 
-/* КНОПКИ */
+/* КНОПКИ ГЛАВНОГО ЭКРАНА */
 
 .hero-buttons {
     display: flex;
@@ -188,6 +188,7 @@ a {
 
 .btn-primary {
     color: #fff;
+
     background: #c90032;
 }
 
@@ -203,11 +204,12 @@ a {
 
 .btn-outline:hover {
     color: #fff;
+
     background: #c90032;
 }
 
 
-/* ФОТО */
+/* ФОТО ГЛАВНОГО ЭКРАНА */
 
 .hero-image img {
     width: 100%;
@@ -264,27 +266,36 @@ h2 {
     margin-top: 50px;
 }
 
-.feature {
-    background: #fff;
 
-    border: 1px solid #e3e3e3;
+/* ПРЯМОУГОЛЬНАЯ КАРТОЧКА */
+
+.feature {
+    width: 100%;
+    min-height: 270px;
 
     padding: 35px 30px;
 
-    min-height: 250px;
+    background: #fff;
+
+    border: 2px solid #d8d8d8;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
 
 .feature:hover {
     transform: translateY(-4px);
 
     border-color: #c90032;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -297,6 +308,7 @@ h2 {
     margin-bottom: 25px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -321,7 +333,7 @@ h2 {
 }
 
 
-/* ТЕКСТ */
+/* ТЕКСТ КАРТОЧКИ */
 
 .feature p {
     margin: 0 0 20px;
@@ -333,7 +345,7 @@ h2 {
 }
 
 
-/* ССЫЛКА АССОРТИМЕНТА */
+/* ССЫЛКА */
 
 .feature-button {
     display: inline-block;
@@ -459,7 +471,7 @@ h2 {
 
 
 /* =========================
-   АДАПТАЦИЯ
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА
 ========================= */
 
 @media (max-width: 900px) {
@@ -510,9 +522,19 @@ h2 {
         height: 350px;
     }
 
+    /* КАРТОЧКИ НА ТЕЛЕФОНЕ */
+
     .features {
         grid-template-columns: 1fr;
+
+        gap: 20px;
     }
+
+    .feature {
+        min-height: 220px;
+    }
+
+    /* ГАЛЕРЕЯ */
 
     .gallery {
         grid-template-columns: 1fr;
@@ -525,6 +547,8 @@ h2 {
     .gallery img {
         height: 250px;
     }
+
+    /* КОНТАКТЫ */
 
     .contact-box {
         grid-template-columns: 1fr;
