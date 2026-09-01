@@ -1,3 +1,7 @@
+/* =========================
+   ОСНОВНЫЕ НАСТРОЙКИ
+========================= */
+
 * {
     box-sizing: border-box;
 }
@@ -14,8 +18,6 @@ body {
 
     color: #111;
     background: #fff;
-
-    overflow-x: hidden;
 }
 
 img {
@@ -44,8 +46,6 @@ a {
 ========================= */
 
 .header {
-    position: relative;
-
     height: 120px;
 
     display: flex;
@@ -53,59 +53,51 @@ a {
 
     background: #c90032;
 
+    position: relative;
     overflow: hidden;
 }
 
-.header-inner {
-    position: relative;
-    z-index: 5;
+/* лёгкие линии в шапке */
 
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-/* ДЕКОР ШАПКИ */
-
-.header::before {
-    content: "";
-
-    position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    right: -250px;
-    top: -270px;
-
-    border: 1px solid rgba(255,255,255,.12);
-
-    transform: rotate(45deg);
-}
-
+.header::before,
 .header::after {
     content: "";
 
     position: absolute;
 
-    width: 300px;
-    height: 300px;
-
-    left: -200px;
-    bottom: -230px;
+    width: 500px;
+    height: 500px;
 
     border: 1px solid rgba(255,255,255,.12);
 
     transform: rotate(45deg);
+
+    pointer-events: none;
+}
+
+.header::before {
+    left: -400px;
+    top: -300px;
+}
+
+.header::after {
+    right: -400px;
+    bottom: -300px;
+}
+
+.header-inner {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 2;
 }
 
 
-/* =========================
-   ЛОГОТИП
-========================= */
+/* ЛОГО */
 
 .logo {
     display: flex;
@@ -122,9 +114,7 @@ a {
 }
 
 
-/* =========================
-   МЕНЮ
-========================= */
+/* МЕНЮ */
 
 .navigation {
     display: flex;
@@ -134,290 +124,21 @@ a {
 }
 
 .navigation a {
-    position: relative;
-
     color: #fff;
 
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 800;
 
     transition: opacity .2s ease;
 }
 
 .navigation a:hover {
-    opacity: .7;
+    opacity: .65;
 }
 
 
 /* =========================
-   ОБЩИЕ СЕКЦИИ
-========================= */
-
-.hero,
-.about,
-.gallery-section,
-.contacts,
-.assortment-page {
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-/* =========================
-   ДЕКОРАТИВНЫЙ ФОН
-========================= */
-
-.hero::before,
-.about::before,
-.gallery-section::before,
-.contacts::before,
-.assortment-page::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    opacity: .42;
-
-    background-image:
-
-        /* диагональные линии */
-
-        linear-gradient(
-            45deg,
-            transparent 49.8%,
-            rgba(0,0,0,.035) 50%,
-            transparent 50.2%
-        ),
-
-        /* кружки */
-
-        radial-gradient(
-            circle at 12% 20%,
-            rgba(201,0,50,.045) 0,
-            rgba(201,0,50,.045) 2px,
-            transparent 3px
-        ),
-
-        radial-gradient(
-            circle at 84% 70%,
-            rgba(201,0,50,.04) 0,
-            rgba(201,0,50,.04) 3px,
-            transparent 4px
-        );
-
-    background-size:
-        170px 170px,
-        250px 250px,
-        330px 330px;
-}
-
-
-/* =========================
-   ЛЁГКИЕ ДЕКОРАТИВНЫЕ ФИГУРЫ
-========================= */
-
-.hero::after,
-.gallery-section::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 650px;
-    height: 650px;
-
-    right: -350px;
-    bottom: -400px;
-
-    border: 1px solid rgba(201,0,50,.045);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    padding: 105px 0 100px;
-
-    background: #fff;
-}
-
-.hero-inner {
-    position: relative;
-    z-index: 3;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    align-items: center;
-
-    gap: 70px;
-}
-
-.hero-content {
-    max-width: 520px;
-}
-
-
-/* =========================
-   ГОРОД
-========================= */
-
-.location-title {
-    margin-bottom: 28px;
-
-    color: #c90032;
-
-    font-size: 15px;
-    font-weight: 900;
-
-    letter-spacing: 6px;
-}
-
-
-/* =========================
-   ГЛАВНЫЙ ЗАГОЛОВОК
-========================= */
-
-.hero h1 {
-    margin: 0 0 28px;
-
-    font-size: 64px;
-
-    line-height: .95;
-
-    font-weight: 900;
-
-    letter-spacing: -2px;
-}
-
-.hero h1 span {
-    display: block;
-}
-
-.hero h1 span:last-child {
-    color: #c90032;
-}
-
-.address {
-    margin: 0 0 32px;
-
-    font-size: 16px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================
-   КНОПКИ
-========================= */
-
-.hero-buttons {
-    display: flex;
-
-    gap: 10px;
-}
-
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 45px;
-
-    padding: 0 28px;
-
-    font-size: 13px;
-
-    font-weight: 900;
-
-    transition: .2s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-.btn-primary {
-    color: #fff;
-
-    background: #c90032;
-}
-
-.btn-primary:hover {
-    background: #a90029;
-}
-
-.btn-outline {
-    color: #c90032;
-
-    background: #fff;
-
-    border: 1px solid #c90032;
-}
-
-.btn-outline:hover {
-    color: #fff;
-
-    background: #c90032;
-}
-
-
-/* =========================
-   ФОТО
-========================= */
-
-.hero-image {
-    position: relative;
-}
-
-.hero-image img {
-    width: 100%;
-
-    height: 420px;
-
-    object-fit: cover;
-
-    border: none !important;
-
-    box-shadow: none !important;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    padding: 100px 0;
-
-    background: #f8f8f8;
-}
-
-.about .container,
-.gallery-section .container,
-.contacts .container,
-.assortment-page .container {
-    position: relative;
-    z-index: 3;
-}
-
-
-/* =========================
-   SECTION LABEL
+   ОБЩИЕ ЗАГОЛОВКИ
 ========================= */
 
 .section-label {
@@ -426,702 +147,95 @@ a {
     color: #c90032;
 
     font-size: 13px;
-
     font-weight: 900;
 
     letter-spacing: 5px;
 }
 
-
-/* =========================
-   H2
-========================= */
-
-h2 {
-    margin: 0 0 55px;
-
-    font-size: 48px;
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    letter-spacing: -1px;
+h1,
+h2,
+h3 {
+    margin-top: 0;
 }
 
 
 /* =========================
-   КАРТОЧКИ
-========================= */
-
-.features {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-
-    margin-top: 45px;
-}
-
-.feature {
-    position: relative;
-
-    width: 100%;
-
-    min-height: 255px;
-
-    padding: 35px 30px;
-
-    background: rgba(255,255,255,.96);
-
-    border: 1px solid #dedede;
-
-    box-shadow: 0 5px 18px rgba(0,0,0,.035);
-
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
-}
-
-
-/* убираем номера */
-
-.feature-number {
-    display: none !important;
-}
-
-
-/* hover */
-
-.feature:hover {
-    transform: translateY(-5px);
-
-    border-color: #c90032;
-
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.08);
-}
-
-
-/* =========================
-   ИКОНКИ
-========================= */
-
-.feature-icon {
-    width: 50px;
-    height: 50px;
-
-    margin-bottom: 25px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #c90032;
-
-    background: #fff;
-
-    border: 2px solid #c90032;
-
-    font-size: 23px;
-
-    font-weight: 900;
-
-    transition: .25s ease;
-}
-
-.feature:hover .feature-icon {
-    color: #fff;
-
-    background: #c90032;
-
-    transform: rotate(-4deg);
-}
-
-
-/* =========================
-   ТЕКСТ КАРТОЧЕК
-========================= */
-
-.feature h3 {
-    margin: 0 0 15px;
-
-    font-size: 20px;
-
-    line-height: 1.3;
-
-    font-weight: 900;
-}
-
-.feature p {
-    margin: 0 0 20px;
-
-    color: #444;
-
-    font-size: 15px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================
-   КНОПКА АССОРТИМЕНТА
-========================= */
-
-.feature-button {
-    display: inline-block;
-
-    color: #c90032;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    transition: transform .2s ease;
-}
-
-.feature-button:hover {
-    transform: translateX(5px);
-}
-
-
-/* =========================
-   ГАЛЕРЕЯ
-========================= */
-
-.gallery-section {
-    padding: 100px 0;
-
-    background: #fff;
-}
-
-.gallery {
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr;
-
-    gap: 15px;
-}
-
-.gallery img {
-    width: 100%;
-
-    height: 260px;
-
-    object-fit: cover;
-
-    border: none !important;
-
-    box-shadow: none !important;
-
-    transition:
-        transform .3s ease,
-        filter .3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.015);
-
-    filter: brightness(.94);
-}
-
-.gallery-main {
-    height: 535px !important;
-
-    grid-row: span 2;
-}
-
-
-/* =========================
-   КОНТАКТЫ
-========================= */
-
-.contacts {
-    padding: 100px 0;
-
-    background: #f8f8f8;
-}
-
-.contact-box {
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 25px;
-}
-
-.contact-item {
-    padding: 30px;
-
-    background: #fff;
-
-    border: 1px solid #dedede;
-
-    transition: .25s ease;
-}
-
-.contact-item:hover {
-    transform: translateY(-4px);
-
-    border-color: #c90032;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.07);
-}
-
-.contact-line {
-    display: none !important;
-}
-
-.contact-item h3 {
-    margin: 0 0 20px;
-
-    font-size: 20px;
-}
-
-.contact-item p {
-    margin: 0 0 25px;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-}
-
-.phone {
-    font-size: 21px !important;
-
-    font-weight: 700;
-}
-
-
-/* =========================
-   КНОПКИ КОНТАКТОВ
-========================= */
-
-.map-button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 43px;
-
-    padding: 0 20px;
-
-    color: #fff;
-
-    background: #c90032;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    transition: .2s ease;
-}
-
-.map-button:hover {
-    background: #a90029;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================
-   ASSORTMENT
+   СТРАНИЦА АССОРТИМЕНТА
 ========================= */
 
 .assortment-page {
-    padding: 90px 0 100px;
-
-    background: #fff;
-}
-
-.assortment-page h1 {
-    margin: 0 0 25px;
-
-    font-size: 52px;
-
-    line-height: 1;
-
-    font-weight: 900;
-}
-
-.assortment-intro {
-    max-width: 650px;
-
-    margin: 0 0 50px;
-
-    color: #444;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================
-   ТАБЛИЦА
-========================= */
-
-.product-table {
-    width: 100%;
-
-    background: #fff;
-
-    border: 1px solid #ddd;
-
-    box-shadow:
-        7px 7px 0 #eeeeee;
-
-    overflow: hidden;
-}
-
-.table-header {
-    display: grid;
-
-    grid-template-columns: 70px 1fr 130px;
-
-    min-height: 58px;
-
-    align-items: center;
-
-    color: #fff;
-
-    background: #c90032;
-
-    font-size: 13px;
-
-    font-weight: 900;
-
-    text-transform: uppercase;
-}
-
-.table-header div {
-    padding: 0 20px;
-}
-
-.table-row {
-    display: grid;
-
-    grid-template-columns: 70px 1fr 130px;
-
-    min-height: 58px;
-
-    align-items: center;
-
-    border-bottom: 1px solid #eee;
-
-    font-size: 15px;
-
-    transition: background .2s ease;
-}
-
-.table-row:last-child {
-    border-bottom: none;
-}
-
-.table-row:hover {
-    background: #faf2f4;
-}
-
-.table-row div {
-    padding: 0 20px;
-}
-
-.table-row div:first-child {
-    color: #999;
-
-    font-weight: 700;
-}
-
-.table-row div:last-child {
-    color: #c90032;
-
-    font-weight: 700;
-}
-
-
-/* =========================
-   ДОПОЛНИТЕЛЬНЫЙ БЛОК
-========================= */
-
-.assortment-extra {
-    padding-top: 70px;
-}
-
-.extra-line {
-    width: 100%;
-
-    height: 1px;
-
-    margin-bottom: 40px;
-
-    background: #ddd;
-}
-
-.assortment-extra h2 {
-    margin-bottom: 20px;
-
-    font-size: 40px;
-}
-
-.assortment-extra p {
-    max-width: 650px;
-
-    color: #444;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-}
-
-.assortment-back {
-    margin-top: 45px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
     position: relative;
 
-    height: 70px;
+    min-height: calc(100vh - 120px);
 
-    background: #c90032;
+    padding: 90px 0 110px;
 
     overflow: hidden;
+
+    background: #fff;
 }
 
-.footer::before {
+
+/* =========================
+   ЛЁГКИЙ ФОН
+========================= */
+
+.assortment-page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 49.7%,
+            rgba(0,0,0,.035) 50%,
+            transparent 50.3%
+        );
+
+    background-size: 190px 190px;
+
+    opacity: .8;
+}
+
+
+/* маленькие декоративные элементы */
+
+.assortment-page::after {
     content: "";
 
     position: absolute;
 
-    width: 250px;
-    height: 250px;
+    width: 700px;
+    height: 700px;
 
-    right: -160px;
-    top: -180px;
+    right: -400px;
+    top: 250px;
 
-    border: 1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(201,0,50,.05);
 
     transform: rotate(45deg);
+
+    pointer-events: none;
+}
+
+
+/* контейнер поверх фона */
+
+.assortment-page .container {
+    position: relative;
+    z-index: 2;
 }
 
 
 /* =========================
-   ПЛАНШЕТ
+   ЗАГОЛОВОК
 ========================= */
 
-@media (max-width: 900px) {
+.assortment-page h1 {
+    margin: 0 0 22px;
 
-    .container {
-        width: min(100% - 30px, 700px);
-    }
-
-    .header {
-        height: auto;
-
-        padding: 25px 0;
-    }
-
-    .header-inner {
-        flex-direction: column;
-
-        gap: 25px;
-    }
-
-    .logo-text {
-        font-size: 28px;
-    }
-
-    .navigation {
-        gap: 25px;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-    }
-
-    .hero {
-        padding: 70px 0;
-    }
-
-    .hero-inner {
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-    }
-
-    .hero h1 {
-        font-size: 52px;
-    }
-
-    .hero-image img {
-        height: 350px;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-
-        gap: 20px;
-    }
-
-    .feature {
-        min-height: 220px;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-main {
-        height: 350px !important;
-    }
-
-    .gallery img {
-        height: 250px;
-    }
-
-    .contact-box {
-        grid-template-columns: 1fr;
-
-        gap: 20px;
-    }
-
-    h2 {
-        font-size: 40px;
-    }
-
-    .table-header,
-    .table-row {
-        grid-template-columns: 60px 1fr 100px;
-    }
-}
-
-
-/* =========================
-   ТЕЛЕФОН
-========================= */
-
-@media (max-width: 600px) {
-
-    .container {
-        width: calc(100% - 30px);
-    }
-
-    .logo-text {
-        font-size: 25px;
-    }
-
-    .navigation {
-        gap: 16px;
-    }
-
-    .navigation a {
-        font-size: 11px;
-    }
-
-    .hero {
-        padding: 55px 0 70px;
-    }
-
-    .location-title {
-        font-size: 12px;
-
-        letter-spacing: 4px;
-    }
-
-    .hero h1 {
-        font-size: 45px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .hero-image img {
-        height: 280px;
-    }
-
-    .about {
-        padding: 70px 0;
-    }
-
-    h2 {
-        font-size: 36px;
-    }
-
-    .feature {
-        min-height: 230px;
-
-        padding: 30px 25px;
-    }
-
-    .gallery-section {
-        padding: 70px 0;
-    }
-
-    .gallery-main {
-        height: 280px !important;
-    }
-
-    .gallery img {
-        height: 220px;
-    }
-
-    .contacts {
-        padding: 70px 0;
-    }
-
-    .assortment-page {
-        padding: 60px 0 80px;
-    }
-
-    .assortment-page h1 {
-        font-size: 40px;
-    }
-
-    .assortment-intro {
-        font-size: 15px;
-    }
-
-    .table-header,
-    .table-row {
-        grid-template-columns: 45px 1fr 80px;
-    }
-
-    .table-header {
-        min-height: 50px;
-
-        font-size: 10px;
-    }
-
-    .table-row {
-        min-height: 52px;
-
-        font-size: 13px;
-    }
-
-    .table-header div,
-    .table-row div {
-        padding: 0 9px;
-    }
-
-    .assortment-extra h2 {
-        font-size: 32px;
-    }
-
-    .footer {
-        height: 60px;
-    }
-}
+    font
