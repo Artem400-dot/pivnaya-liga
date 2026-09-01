@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================================
    ОСНОВНЫЕ НАСТРОЙКИ
-========================= */
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -17,7 +17,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 
     color: #111;
+
     background: #fff;
+
+    overflow-x: hidden;
 }
 
 img {
@@ -31,9 +34,9 @@ a {
 }
 
 
-/* =========================
+/* =========================================================
    КОНТЕЙНЕР
-========================= */
+========================================================= */
 
 .container {
     width: min(1100px, calc(100% - 60px));
@@ -41,11 +44,13 @@ a {
 }
 
 
-/* =========================
+/* =========================================================
    ШАПКА
-========================= */
+========================================================= */
 
 .header {
+    position: relative;
+
     height: 120px;
 
     display: flex;
@@ -53,11 +58,22 @@ a {
 
     background: #c90032;
 
-    position: relative;
     overflow: hidden;
 }
 
-/* лёгкие линии в шапке */
+.header-inner {
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* диагональные линии */
 
 .header::before,
 .header::after {
@@ -65,39 +81,28 @@ a {
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
 
-    border: 1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,0.13);
 
     transform: rotate(45deg);
-
-    pointer-events: none;
 }
 
 .header::before {
-    left: -400px;
-    top: -300px;
+    right: -160px;
+    top: -210px;
 }
 
 .header::after {
-    right: -400px;
-    bottom: -300px;
-}
-
-.header-inner {
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    position: relative;
-    z-index: 2;
+    left: -210px;
+    bottom: -210px;
 }
 
 
-/* ЛОГО */
+/* =========================================================
+   ЛОГОТИП
+========================================================= */
 
 .logo {
     display: flex;
@@ -105,6 +110,8 @@ a {
 }
 
 .logo-text {
+    position: relative;
+
     color: #fff;
 
     font-size: 34px;
@@ -113,8 +120,24 @@ a {
     letter-spacing: -1px;
 }
 
+.logo-text::after {
+    content: "";
 
-/* МЕНЮ */
+    position: absolute;
+
+    left: 0;
+    bottom: -10px;
+
+    width: 30px;
+    height: 3px;
+
+    background: #fff;
+}
+
+
+/* =========================================================
+   НАВИГАЦИЯ
+========================================================= */
 
 .navigation {
     display: flex;
@@ -124,24 +147,304 @@ a {
 }
 
 .navigation a {
+    position: relative;
+
     color: #fff;
 
     font-size: 14px;
-    font-weight: 800;
-
-    transition: opacity .2s ease;
+    font-weight: 900;
 }
 
-.navigation a:hover {
+.navigation a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #fff;
+
+    transition: width .25s ease;
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   ОБЩИЙ ФОН С ДИАГОНАЛЬНЫМИ ПОЛОСАМИ
+========================================================= */
+
+.hero,
+.about,
+.gallery-section,
+.contacts,
+.assortment-page {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* еле заметные полосы */
+
+.hero::before,
+.about::before,
+.gallery-section::before,
+.contacts::before,
+.assortment-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 49.7%,
+            rgba(0,0,0,0.035) 49.8%,
+            rgba(0,0,0,0.035) 50.2%,
+            transparent 50.3%
+        );
+
+    background-size: 100px 100px;
+
     opacity: .65;
 }
 
 
-/* =========================
-   ОБЩИЕ ЗАГОЛОВКИ
-========================= */
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    padding: 105px 0 100px;
+
+    background: #fff;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.hero-content {
+    max-width: 520px;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-title {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 28px;
+
+    color: #c90032;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    letter-spacing: 6px;
+}
+
+.location-title::before {
+    content: "";
+
+    width: 24px;
+    height: 3px;
+
+    margin-right: 12px;
+
+    background: #c90032;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero h1 {
+    margin: 0 0 28px;
+
+    font-size: 64px;
+    line-height: .95;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero h1 span:last-child {
+    color: #c90032;
+}
+
+.address {
+    margin: 0 0 32px;
+
+    color: #333;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 10px;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 45px;
+
+    padding: 0 28px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    transition: .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    color: #fff;
+
+    background: #c90032;
+}
+
+.btn-primary:hover {
+    background: #a90029;
+}
+
+.btn-outline {
+    color: #c90032;
+
+    background: #fff;
+
+    border: 1px solid #c90032;
+}
+
+.btn-outline:hover {
+    color: #fff;
+
+    background: #c90032;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    top: -10px;
+    right: -10px;
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid #c90032;
+
+    z-index: -1;
+}
+
+.hero-image::after {
+    content: "";
+
+    position: absolute;
+
+    left: -10px;
+    bottom: -10px;
+
+    width: 62px;
+    height: 62px;
+
+    border-left: 4px solid #c90032;
+    border-bottom: 4px solid #c90032;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 420px;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    padding: 90px 0;
+
+    background: #f8f8f8;
+}
+
+.about .container,
+.gallery-section .container,
+.contacts .container,
+.assortment-page .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
 
 .section-label {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
     margin-bottom: 20px;
 
     color: #c90032;
@@ -152,90 +455,781 @@ a {
     letter-spacing: 5px;
 }
 
-h1,
-h2,
-h3 {
-    margin-top: 0;
+.section-label::before {
+    content: "";
+
+    width: 27px;
+    height: 3px;
+
+    background: #c90032;
 }
 
 
-/* =========================
-   СТРАНИЦА АССОРТИМЕНТА
-========================= */
+/* =========================================================
+   H2
+========================================================= */
 
-.assortment-page {
+h2 {
+    margin: 0 0 55px;
+
+    font-size: 48px;
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 45px;
+}
+
+
+/* =========================================================
+   FEATURE CARD
+========================================================= */
+
+.feature {
     position: relative;
 
-    min-height: calc(100vh - 120px);
+    min-height: 265px;
 
-    padding: 90px 0 110px;
+    padding: 30px;
+
+    background: rgba(255,255,255,.96);
+
+    border: 1px solid #dedede;
 
     overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+
+/* большой номер */
+
+.feature-number {
+    position: absolute;
+
+    right: 18px;
+    top: 10px;
+
+    color: #eeeeee;
+
+    font-size: 72px;
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+
+/* красная полоска сверху */
+
+.feature::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #c90032;
+}
+
+
+/* hover */
+
+.feature:hover {
+    transform: translateY(-5px);
+
+    border-color: #c90032;
+
+    box-shadow:
+        8px 8px 0 #dedede;
+}
+
+
+/* =========================================================
+   FEATURE ICON
+========================================================= */
+
+.feature-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #c90032;
+
+    background: #fff;
+
+    border: 2px solid #c90032;
+
+    font-size: 23px;
+    font-weight: 900;
+
+    transition: .25s ease;
+}
+
+.feature:hover .feature-icon {
+    color: #fff;
+
+    background: #c90032;
+
+    transform: rotate(-4deg);
+}
+
+
+/* =========================================================
+   FEATURE TEXT
+========================================================= */
+
+.feature h3 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 14px;
+
+    font-size: 20px;
+    line-height: 1.3;
+
+    font-weight: 900;
+}
+
+.feature p {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 20px;
+
+    color: #444;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FEATURE BUTTON
+========================================================= */
+
+.feature-button {
+    position: relative;
+    z-index: 3;
+
+    display: inline-block;
+
+    color: #c90032;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    transition: transform .2s ease;
+}
+
+.feature-button:hover {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-section {
+    padding: 100px 0;
 
     background: #fff;
 }
 
+.gallery {
+    display: grid;
 
-/* =========================
-   ЛЁГКИЙ ФОН
-========================= */
+    grid-template-columns: 2fr 1fr 1fr;
 
-.assortment-page::before {
-    content: "";
+    gap: 15px;
+}
 
-    position: absolute;
-    inset: 0;
+.gallery img {
+    width: 100%;
+    height: 260px;
 
-    pointer-events: none;
+    object-fit: cover;
 
-    background-image:
-        linear-gradient(
-            45deg,
-            transparent 49.7%,
-            rgba(0,0,0,.035) 50%,
-            transparent 50.3%
-        );
+    border: 1px solid #ddd;
 
-    background-size: 190px 190px;
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
 
-    opacity: .8;
+.gallery img:hover {
+    transform: scale(1.015);
+
+    filter: brightness(.92);
+}
+
+.gallery-main {
+    height: 535px !important;
+
+    grid-row: span 2;
 }
 
 
-/* маленькие декоративные элементы */
+/* =========================================================
+   CONTACTS
+========================================================= */
 
-.assortment-page::after {
-    content: "";
+.contacts {
+    padding: 100px 0;
 
-    position: absolute;
-
-    width: 700px;
-    height: 700px;
-
-    right: -400px;
-    top: 250px;
-
-    border: 1px solid rgba(201,0,50,.05);
-
-    transform: rotate(45deg);
-
-    pointer-events: none;
+    background: #f8f8f8;
 }
 
+.contact-box {
+    display: grid;
 
-/* контейнер поверх фона */
+    grid-template-columns: repeat(3, 1fr);
 
-.assortment-page .container {
+    gap: 25px;
+}
+
+.contact-item {
     position: relative;
-    z-index: 2;
+
+    padding: 30px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    transition: .25s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-4px);
+
+    border-color: #c90032;
+
+    box-shadow: 7px 7px 0 #ddd;
+}
+
+.contact-line {
+    width: 30px;
+    height: 3px;
+
+    margin-bottom: 25px;
+
+    background: #c90032;
+}
+
+.contact-item h3 {
+    margin: 0 0 18px;
+
+    font-size: 20px;
+}
+
+.contact-item p {
+    margin: 0 0 25px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.phone {
+    font-size: 21px !important;
+
+    font-weight: 700;
 }
 
 
-/* =========================
-   ЗАГОЛОВОК
-========================= */
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.map-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 43px;
+
+    padding: 0 20px;
+
+    color: #fff;
+
+    background: #c90032;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    transition: .2s ease;
+}
+
+.map-button:hover {
+    background: #a90029;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ASSORTMENT PAGE
+========================================================= */
+
+.assortment-page {
+    padding: 85px 0 100px;
+
+    background: #fff;
+}
 
 .assortment-page h1 {
     margin: 0 0 22px;
 
-    font
+    font-size: 52px;
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.assortment-intro {
+    max-width: 650px;
+
+    margin: 0 0 50px;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PRODUCT TABLE
+========================================================= */
+
+.product-table {
+    width: 100%;
+
+    background: #fff;
+
+    border: 1px solid #d8d8d8;
+
+    box-shadow: 7px 7px 0 #eeeeee;
+
+    overflow: hidden;
+}
+
+
+/* HEADER */
+
+.table-header {
+    display: grid;
+
+    grid-template-columns: 80px 1fr 150px;
+
+    min-height: 58px;
+
+    align-items: center;
+
+    color: #fff;
+
+    background: #c90032;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+}
+
+.table-header div {
+    padding: 0 20px;
+}
+
+
+/* ROW */
+
+.table-row {
+    display: grid;
+
+    grid-template-columns: 80px 1fr 150px;
+
+    min-height: 58px;
+
+    align-items: center;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 15px;
+
+    transition: background .2s ease;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row:hover {
+    background: #faf2f4;
+}
+
+.table-row div {
+    padding: 0 20px;
+}
+
+.table-row div:first-child {
+    color: #999;
+
+    font-weight: 700;
+}
+
+.table-row div:last-child {
+    color: #c90032;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ASSORTMENT EXTRA
+========================================================= */
+
+.assortment-extra {
+    padding-top: 70px;
+}
+
+.extra-line {
+    width: 100%;
+    height: 1px;
+
+    margin: 0 0 40px;
+
+    background: #ddd;
+}
+
+.assortment-extra h2 {
+    margin-bottom: 20px;
+
+    font-size: 40px;
+}
+
+.assortment-extra p {
+    max-width: 650px;
+
+    margin: 0 0 40px;
+
+    color: #444;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.assortment-back {
+    margin-top: 40px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    position: relative;
+
+    height: 70px;
+
+    background: #c90032;
+
+    overflow: hidden;
+}
+
+.footer::before,
+.footer::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    transform: rotate(45deg);
+}
+
+.footer::before {
+    right: -100px;
+    top: -130px;
+}
+
+.footer::after {
+    left: -100px;
+    bottom: -130px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .container {
+        width: min(100% - 30px, 700px);
+    }
+
+    .header {
+        height: auto;
+
+        padding: 25px 0;
+    }
+
+    .header-inner {
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .logo-text {
+        font-size: 28px;
+    }
+
+    .navigation {
+        gap: 25px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .hero-image img {
+        height: 350px;
+    }
+
+
+    .features {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .feature {
+        min-height: 230px;
+    }
+
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-main {
+        height: 350px !important;
+    }
+
+    .gallery img {
+        height: 250px;
+    }
+
+
+    .contact-box {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 60px 1fr 100px;
+    }
+
+
+    h2 {
+        font-size: 40px;
+    }
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 30px);
+    }
+
+
+    .logo-text {
+        font-size: 25px;
+    }
+
+    .navigation {
+        gap: 17px;
+    }
+
+    .navigation a {
+        font-size: 11px;
+    }
+
+
+    .hero {
+        padding: 55px 0 70px;
+    }
+
+    .location-title {
+        font-size: 12px;
+
+        letter-spacing: 4px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .hero-image img {
+        height: 280px;
+    }
+
+
+    .about {
+        padding: 70px 0;
+    }
+
+    h2 {
+        margin-bottom: 40px;
+
+        font-size: 36px;
+    }
+
+
+    .feature {
+        min-height: 240px;
+
+        padding: 30px 25px;
+    }
+
+
+    .gallery-section {
+        padding: 70px 0;
+    }
+
+    .gallery-main {
+        height: 280px !important;
+    }
+
+    .gallery img {
+        height: 220px;
+    }
+
+
+    .contacts {
+        padding: 70px 0;
+    }
+
+
+    .assortment-page {
+        padding: 60px 0 80px;
+    }
+
+    .assortment-page h1 {
+        font-size: 40px;
+    }
+
+    .assortment-intro {
+        font-size: 15px;
+    }
+
+
+    /* МОБИЛЬНАЯ ТАБЛИЦА */
+
+    .table-header {
+        grid-template-columns: 45px 1fr 80px;
+
+        min-height: 52px;
+
+        font-size: 11px;
+    }
+
+    .table-row {
+        grid-template-columns: 45px 1fr 80px;
+
+        min-height: 52px;
+
+        font-size: 13px;
+    }
+
+    .table-header div,
+    .table-row div {
+        padding: 0 10px;
+    }
+
+
+    .assortment-extra h2 {
+        font-size: 32px;
+    }
+
+
+    .footer {
+        height: 60px;
+    }
+}
