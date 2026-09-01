@@ -5,116 +5,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Магазин — Криводановка</title>
+    <title>Пивная Лига — Криводановка</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         ШАПКА
-    ========================== -->
+<header class="header">
 
-    <header class="header">
+    <div class="container header-inner">
 
-        <div class="container header-inner">
+        <a href="index.html" class="logo">
+            <span class="logo-text">ПИВНАЯ ЛИГА</span>
+        </a>
 
-            <a href="./index.html" class="logo">
-                <span class="logo-text">
-                    МАГАЗИН
-                </span>
-            </a>
+        <nav class="navigation">
 
-            <nav class="navigation">
+            <a href="#about">О МАГАЗИНЕ</a>
 
-                <a href="#about">
-                    О МАГАЗИНЕ
-                </a>
+            <a href="#gallery">ГАЛЕРЕЯ</a>
 
-                <a href="#gallery">
-                    ГАЛЕРЕЯ
-                </a>
+            <a href="#contacts">КОНТАКТЫ</a>
 
-                <a href="#contacts">
-                    КОНТАКТЫ
-                </a>
+        </nav>
 
-            </nav>
+    </div>
 
-        </div>
-
-    </header>
+</header>
 
 
-    <main>
+<main>
 
-        <!-- =========================
-             ГЛАВНЫЙ ЭКРАН
-        ========================== -->
+    <!-- ГЛАВНЫЙ ЭКРАН -->
 
-        <section class="hero">
+    <section class="hero">
 
-            <div class="container hero-inner">
+        <div class="container hero-inner">
 
-                <div class="hero-content">
+            <div class="hero-content">
 
-                    <div class="location-title">
-                        КРИВОДАНОВКА
-                    </div>
-
-                    <h1>
-                        <span>НАШ</span>
-                        <span>МАГАЗИН</span>
-                    </h1>
-
-                    <p class="address">
-                        Криводановка, ул. Шоссейная, 2/4
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a href="#about" class="btn btn-primary">
-                            О МАГАЗИНЕ
-                        </a>
-
-                        <a href="#contacts" class="btn btn-outline">
-                            КАК ДОБРАТЬСЯ
-                        </a>
-
-                    </div>
-
+                <div class="location-title">
+                    КРИВОДАНОВКА
                 </div>
 
+                <h1>
+                    <span>ПИВНАЯ</span>
+                    <span>ЛИГА</span>
+                </h1>
 
-                <div class="hero-image">
+                <p class="address">
+                    Криводановка, ул. Шоссейная, 2/4
+                </p>
 
-                    <img
-                        src="./store.jpg"
-                        alt="Магазин"
-                    >
+                <div class="hero-buttons">
+
+                    <a href="#about" class="btn btn-primary">
+                        О МАГАЗИНЕ
+                    </a>
+
+                    <a href="#contacts" class="btn btn-outline">
+                        КАК ДОБРАТЬСЯ
+                    </a>
 
                 </div>
 
             </div>
 
-        </section>
+
+            <div class="hero-image">
+
+                <img
+                    src="store.jpg"
+                    alt="Пивная Лига — магазин"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-        <!-- =========================
-             О МАГАЗИНЕ
-        ========================== -->
+    <!-- О МАГАЗИНЕ -->
 
-        <section
-            class="about"
-            id="about"
-        >
+    <section class="about" id="about">
 
-            <div class="container">
+        <div class="container">
 
-                <div class="section-label">
-                    НАШ МАГАЗИН
+            <div class="section-label">
+                НАШ МАГАЗИН
+            </div>
+
+            <h2>
+                О магазине
+            </h2>
+
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ★
+                    </div>
+
+                    <h3>
+                        Большой выбор
+                    </h3>
+
+                    <p>
+                        Большой выбор напитков и товаров
+                        для настоящих ценителей.
+                    </p>
+
                 </div>
 
-                <h2>
-                    О магазине
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Качественный ассортимент
+                    </h3>
+
+                    <p>
+                        Только проверенные товары
+                        и хороший выбор.
+                    </p>
+
+                    <a href="assortment.html" class="feature-button">
+                        АССОРТИМЕНТ →
+                    </a>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        Удобное расположение
+                    </h3>
+
+                    <p>
+                        Мы находимся в Криводановке
+                        на улице Шоссейной.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ГАЛЕРЕЯ -->
+
+    <section class="gallery-section" id="gallery">
+
+        <div class="container">
+
+            <div class="section-label">
+                НАШ МАГАЗИН
+            </div>
+
+            <h2
