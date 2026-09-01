@@ -1,6 +1,6 @@
-/* =========================
+/* ==================================================
    ОСНОВНЫЕ НАСТРОЙКИ
-========================= */
+================================================== */
 
 * {
     box-sizing: border-box;
@@ -18,6 +18,8 @@ body {
 
     color: #111;
     background: #fff;
+
+    overflow-x: hidden;
 }
 
 img {
@@ -31,9 +33,9 @@ a {
 }
 
 
-/* =========================
+/* ==================================================
    КОНТЕЙНЕР
-========================= */
+================================================== */
 
 .container {
     width: min(1100px, calc(100% - 60px));
@@ -41,19 +43,62 @@ a {
 }
 
 
-/* =========================
+/* ==================================================
    ШАПКА
-========================= */
+================================================== */
 
 .header {
-    background: #c90032;
+    position: relative;
+
     height: 120px;
 
     display: flex;
     align-items: center;
+
+    background: #c90032;
+
+    overflow: hidden;
+}
+
+
+/* ДЕКОРАТИВНЫЕ ЛИНИИ В ШАПКЕ */
+
+.header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    right: -100px;
+    top: -150px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    transform: rotate(45deg);
+}
+
+.header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    left: -100px;
+    bottom: -140px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    transform: rotate(45deg);
 }
 
 .header-inner {
+    position: relative;
+    z-index: 2;
+
     height: 100%;
 
     display: flex;
@@ -62,7 +107,9 @@ a {
 }
 
 
-/* НАЗВАНИЕ САЙТА */
+/* ==================================================
+   ЛОГОТИП
+================================================== */
 
 .logo {
     display: flex;
@@ -76,10 +123,27 @@ a {
     font-weight: 900;
 
     letter-spacing: -1px;
+
+    position: relative;
+}
+
+.logo-text::after {
+    content: "";
+
+    display: block;
+
+    width: 35px;
+    height: 3px;
+
+    margin-top: 7px;
+
+    background: #fff;
 }
 
 
-/* МЕНЮ */
+/* ==================================================
+   МЕНЮ
+================================================== */
 
 .navigation {
     display: flex;
@@ -89,6 +153,8 @@ a {
 }
 
 .navigation a {
+    position: relative;
+
     color: #fff;
 
     font-size: 14px;
@@ -97,20 +163,86 @@ a {
     transition: opacity 0.2s ease;
 }
 
+.navigation a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #fff;
+
+    transition: width 0.25s ease;
+}
+
 .navigation a:hover {
-    opacity: 0.7;
+    opacity: 1;
+}
+
+.navigation a:hover::after {
+    width: 100%;
 }
 
 
-/* =========================
+/* ==================================================
    ГЛАВНЫЙ ЭКРАН
-========================= */
+================================================== */
 
 .hero {
+    position: relative;
+
     padding: 110px 0 100px;
+
+    overflow: hidden;
+}
+
+
+/* ДЕКОРАТИВНЫЙ УЗОР */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -210px;
+    top: 80px;
+
+    border: 1px solid #eeeeee;
+
+    transform: rotate(45deg);
+
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    left: -100px;
+    bottom: -80px;
+
+    border: 1px solid #f0f0f0;
+
+    transform: rotate(45deg);
+
+    pointer-events: none;
 }
 
 .hero-inner {
+    position: relative;
+    z-index: 2;
+
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -124,7 +256,14 @@ a {
     max-width: 520px;
 }
 
+
+/* МЕСТОПОЛОЖЕНИЕ */
+
 .location-title {
+    position: relative;
+
+    display: inline-block;
+
     margin-bottom: 28px;
 
     color: #c90032;
@@ -134,6 +273,24 @@ a {
 
     letter-spacing: 6px;
 }
+
+.location-title::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 28px;
+    height: 3px;
+
+    margin-right: 10px;
+
+    vertical-align: middle;
+
+    background: #c90032;
+}
+
+
+/* ЗАГОЛОВОК */
 
 .hero h1 {
     margin: 0 0 28px;
@@ -154,37 +311,54 @@ a {
     color: #c90032;
 }
 
+
+/* АДРЕС */
+
 .address {
     margin: 0 0 32px;
 
     font-size: 16px;
     line-height: 1.6;
+
+    color: #333;
 }
 
 
-/* =========================
-   КНОПКИ ГЛАВНОГО ЭКРАНА
-========================= */
+/* ==================================================
+   КНОПКИ
+================================================== */
 
 .hero-buttons {
     display: flex;
+
     gap: 10px;
 }
 
 .btn {
+    position: relative;
+
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    min-height: 42px;
+    min-height: 45px;
 
     padding: 0 28px;
 
     font-size: 13px;
     font-weight: 900;
 
-    transition: 0.2s ease;
+    overflow: hidden;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
 }
 
 .btn-primary {
@@ -201,6 +375,8 @@ a {
     color: #c90032;
 
     border: 1px solid #c90032;
+
+    background: #fff;
 }
 
 .btn-outline:hover {
@@ -210,9 +386,44 @@ a {
 }
 
 
-/* =========================
+/* ==================================================
    ФОТО ГЛАВНОГО ЭКРАНА
-========================= */
+================================================== */
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    top: -12px;
+    right: -12px;
+
+    width: 100%;
+    height: 100%;
+
+    border: 2px solid #c90032;
+
+    z-index: -1;
+}
+
+.hero-image::after {
+    content: "";
+
+    position: absolute;
+
+    left: -12px;
+    bottom: -12px;
+
+    width: 70px;
+    height: 70px;
+
+    border-left: 4px solid #c90032;
+    border-bottom: 4px solid #c90032;
+}
 
 .hero-image img {
     width: 100%;
@@ -222,17 +433,73 @@ a {
 }
 
 
-/* =========================
+/* ==================================================
    О МАГАЗИНЕ
-========================= */
+================================================== */
 
 .about {
+    position: relative;
+
     padding: 100px 0;
 
     background: #f7f7f7;
+
+    overflow: hidden;
 }
 
+
+/* ФОНОВЫЙ УЗОР */
+
+.about::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -180px;
+    top: -120px;
+
+    border: 1px solid #e7e7e7;
+
+    transform: rotate(45deg);
+}
+
+.about::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    left: -130px;
+    bottom: -100px;
+
+    border: 1px solid #e9e9e9;
+
+    transform: rotate(45deg);
+}
+
+.about .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ==================================================
+   ЗАГОЛОВКИ СЕКЦИЙ
+================================================== */
+
 .section-label {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
     margin-bottom: 20px;
 
     color: #c90032;
@@ -241,6 +508,15 @@ a {
     font-weight: 900;
 
     letter-spacing: 5px;
+}
+
+.section-label::before {
+    content: "";
+
+    width: 32px;
+    height: 3px;
+
+    background: #c90032;
 }
 
 h2 {
@@ -255,9 +531,9 @@ h2 {
 }
 
 
-/* =========================
+/* ==================================================
    КАРТОЧКИ
-========================= */
+================================================== */
 
 .features {
     display: grid;
@@ -269,76 +545,110 @@ h2 {
     margin-top: 50px;
 }
 
-
-/* СТИЛЬНАЯ ПРЯМОУГОЛЬНАЯ КАРТОЧКА */
-
 .feature {
     position: relative;
 
     width: 100%;
-    min-height: 270px;
+    min-height: 290px;
 
-    padding: 38px 30px 32px;
+    padding: 38px 30px 35px;
 
     background: #fff;
 
-    border: 1px solid #d8d8d8;
+    border: 1px solid #dcdcdc;
     border-top: 4px solid #c90032;
 
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.05);
 
     overflow: hidden;
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
 
-/* ДЕКОРАТИВНАЯ ЛИНИЯ ВНИЗУ */
+/* БОЛЬШИЕ НОМЕРА */
+
+.feature::before {
+    position: absolute;
+
+    right: 18px;
+    top: 10px;
+
+    color: #f1f1f1;
+
+    font-size: 70px;
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+.feature:nth-child(1)::before {
+    content: "01";
+}
+
+.feature:nth-child(2)::before {
+    content: "02";
+}
+
+.feature:nth-child(3)::before {
+    content: "03";
+}
+
+
+/* ДЕКОРАТИВНЫЙ УГОЛ */
 
 .feature::after {
     content: "";
 
     position: absolute;
 
-    left: 30px;
+    right: 0;
     bottom: 0;
 
-    width: 0;
-    height: 3px;
+    width: 35px;
+    height: 35px;
 
-    background: #c90032;
+    border-top: 2px solid #c90032;
+    border-left: 2px solid #c90032;
 
-    transition: width 0.3s ease;
+    transform: translate(15px, 15px);
+
+    transition: transform 0.3s ease;
 }
 
 
 /* НАВЕДЕНИЕ */
 
 .feature:hover {
-    transform: translateY(-7px);
+    transform: translateY(-8px);
 
     border-color: #c90032;
 
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.12);
 }
 
 .feature:hover::after {
-    width: calc(100% - 60px);
+    transform: translate(0, 0);
 }
 
 
-/* =========================
-   ИКОНКИ КАРТОЧЕК
-========================= */
+/* ==================================================
+   ИКОНКИ
+================================================== */
 
 .feature-icon {
-    width: 50px;
-    height: 50px;
+    position: relative;
+    z-index: 2;
 
-    margin-bottom: 25px;
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 26px;
 
     display: flex;
 
@@ -360,9 +670,6 @@ h2 {
         transform 0.25s ease;
 }
 
-
-/* ИКОНКА ПРИ НАВЕДЕНИИ */
-
 .feature:hover .feature-icon {
     color: #fff;
 
@@ -372,11 +679,14 @@ h2 {
 }
 
 
-/* =========================
+/* ==================================================
    ЗАГОЛОВОК КАРТОЧКИ
-========================= */
+================================================== */
 
 .feature h3 {
+    position: relative;
+    z-index: 2;
+
     margin: 0 0 15px;
 
     font-size: 20px;
@@ -386,11 +696,14 @@ h2 {
 }
 
 
-/* =========================
+/* ==================================================
    ТЕКСТ КАРТОЧКИ
-========================= */
+================================================== */
 
 .feature p {
+    position: relative;
+    z-index: 2;
+
     margin: 0 0 20px;
 
     font-size: 15px;
@@ -400,11 +713,14 @@ h2 {
 }
 
 
-/* =========================
+/* ==================================================
    КНОПКА АССОРТИМЕНТА
-========================= */
+================================================== */
 
 .feature-button {
+    position: relative;
+    z-index: 2;
+
     display: inline-block;
 
     margin-top: 5px;
@@ -422,17 +738,45 @@ h2 {
 .feature-button:hover {
     color: #a90029;
 
-    transform: translateX(4px);
+    transform: translateX(5px);
 }
 
 
-/* =========================
+/* ==================================================
    ГАЛЕРЕЯ
-========================= */
+================================================== */
 
 .gallery-section {
+    position: relative;
+
     padding: 100px 0;
+
+    overflow: hidden;
 }
+
+.gallery-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -170px;
+    bottom: -120px;
+
+    border: 1px solid #eeeeee;
+
+    transform: rotate(45deg);
+}
+
+.gallery-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* СЕТКА ГАЛЕРЕИ */
 
 .gallery {
     display: grid;
@@ -442,11 +786,26 @@ h2 {
     gap: 15px;
 }
 
+
+/* ФОТО */
+
 .gallery img {
     width: 100%;
     height: 260px;
 
     object-fit: cover;
+
+    border: 1px solid #ddd;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.02);
+
+    filter: brightness(0.9);
 }
 
 .gallery-main {
@@ -456,27 +815,107 @@ h2 {
 }
 
 
-/* =========================
+/* ==================================================
    КОНТАКТЫ
-========================= */
+================================================== */
 
 .contacts {
+    position: relative;
+
     padding: 100px 0;
+
+    background: #f7f7f7;
+
+    overflow: hidden;
 }
+
+.contacts::before {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    left: -220px;
+    top: -180px;
+
+    border: 1px solid #e8e8e8;
+
+    transform: rotate(45deg);
+}
+
+.contacts .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* КОНТАКТНЫЕ КАРТОЧКИ */
 
 .contact-box {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 80px;
+    gap: 25px;
 }
+
+.contact-item {
+    position: relative;
+
+    padding: 30px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+
+    border-color: #c90032;
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 0;
+
+    background: #c90032;
+
+    transition: height 0.3s ease;
+}
+
+.contact-item:hover::before {
+    height: 100%;
+}
+
+
+/* ЗАГОЛОВКИ КОНТАКТОВ */
 
 .contact-item h3 {
     margin: 0 0 20px;
 
     font-size: 20px;
 }
+
+
+/* ТЕКСТ */
 
 .contact-item p {
     margin: 0 0 25px;
@@ -491,9 +930,9 @@ h2 {
 }
 
 
-/* =========================
+/* ==================================================
    КНОПКИ КОНТАКТОВ
-========================= */
+================================================== */
 
 .map-button {
     display: inline-flex;
@@ -512,34 +951,253 @@ h2 {
     font-size: 13px;
     font-weight: 900;
 
-    transition: 0.2s ease;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .map-button:hover {
     background: #a90029;
+
+    transform: translateY(-2px);
 }
 
 
-/* =========================
+/* ==================================================
+   СТРАНИЦА АССОРТИМЕНТА
+================================================== */
+
+.assortment-page {
+    position: relative;
+
+    padding: 90px 0 100px;
+
+    overflow: hidden;
+}
+
+.assortment-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: -220px;
+    top: 120px;
+
+    border: 1px solid #eeeeee;
+
+    transform: rotate(45deg);
+}
+
+.assortment-page .container {
+    position: relative;
+    z-index: 2;
+}
+
+.assortment-page h1 {
+    margin: 0 0 25px;
+
+    font-size: 52px;
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.assortment-intro {
+    max-width: 650px;
+
+    margin: 0 0 55px;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    color: #444;
+}
+
+
+/* ==================================================
+   БЛОК АССОРТИМЕНТА
+================================================== */
+
+.assortment-box {
+    border: 1px solid #d8d8d8;
+
+    background: #fff;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.assortment-box-title {
+    padding: 20px 25px;
+
+    color: #fff;
+
+    background: #c90032;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* СПИСОК */
+
+.product-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    padding: 10px 25px;
+}
+
+
+/* ТОВАР */
+
+.product {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 58px;
+
+    padding: 0 10px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 15px;
+}
+
+.product span {
+    color: #222;
+}
+
+.product strong {
+    color: #c90032;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   ДОПОЛНИТЕЛЬНЫЙ АССОРТИМЕНТ
+================================================== */
+
+.assortment-extra {
+    padding: 70px 0 20px;
+}
+
+.extra-line {
+    width: 100%;
+    height: 1px;
+
+    margin: 0 0 45px;
+
+    background: #ddd;
+}
+
+.assortment-extra h2 {
+    margin-bottom: 30px;
+
+    font-size: 40px;
+}
+
+.extra-content {
+    max-width: 700px;
+}
+
+.extra-title {
+    margin-bottom: 15px;
+
+    color: #c90032;
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.extra-content p {
+    margin: 0 0 15px;
+
+    color: #444;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   КНОПКА НАЗАД
+================================================== */
+
+.assortment-back {
+    margin-top: 45px;
+}
+
+
+/* ==================================================
    ПОДВАЛ
-========================= */
+================================================== */
 
 .footer {
+    position: relative;
+
     height: 70px;
 
     background: #c90032;
+
+    overflow: hidden;
+}
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -80px;
+    top: -100px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    transform: rotate(45deg);
+}
+
+.footer::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    left: 10%;
+    bottom: -90px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    transform: rotate(45deg);
 }
 
 
-/* =========================
-   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА
-========================= */
+/* ==================================================
+   АДАПТАЦИЯ — ПЛАНШЕТ
+================================================== */
 
 @media (max-width: 900px) {
 
     .container {
         width: min(100% - 30px, 700px);
     }
+
 
     /* ШАПКА */
 
@@ -577,7 +1235,7 @@ h2 {
     .hero-inner {
         grid-template-columns: 1fr;
 
-        gap: 50px;
+        gap: 55px;
     }
 
     .hero h1 {
@@ -598,7 +1256,7 @@ h2 {
     }
 
     .feature {
-        min-height: 220px;
+        min-height: 240px;
 
         padding: 32px 25px;
     }
@@ -624,7 +1282,22 @@ h2 {
     .contact-box {
         grid-template-columns: 1fr;
 
-        gap: 45px;
+        gap: 20px;
+    }
+
+
+    /* АССОРТИМЕНТ */
+
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .assortment-page h1 {
+        font-size: 42px;
+    }
+
+    .assortment-extra h2 {
+        font-size: 36px;
     }
 
 
@@ -632,5 +1305,159 @@ h2 {
 
     h2 {
         font-size: 40px;
+    }
+}
+
+
+/* ==================================================
+   АДАПТАЦИЯ — ТЕЛЕФОН
+================================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 30px);
+    }
+
+
+    /* ШАПКА */
+
+    .logo-text {
+        font-size: 25px;
+    }
+
+    .navigation {
+        gap: 18px;
+    }
+
+    .navigation a {
+        font-size: 12px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 55px 0 70px;
+    }
+
+    .location-title {
+        font-size: 12px;
+
+        letter-spacing: 4px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .hero-image img {
+        height: 280px;
+    }
+
+    .hero-image::before {
+        top: -8px;
+        right: -8px;
+    }
+
+
+    /* О МАГАЗИНЕ */
+
+    .about {
+        padding: 70px 0;
+    }
+
+    h2 {
+        margin-bottom: 40px;
+
+        font-size: 36px;
+    }
+
+    .features {
+        margin-top: 35px;
+    }
+
+    .feature {
+        min-height: 250px;
+    }
+
+
+    /* ГАЛЕРЕЯ */
+
+    .gallery-section {
+        padding: 70px 0;
+    }
+
+    .gallery-main {
+        height: 280px !important;
+    }
+
+    .gallery img {
+        height: 220px;
+    }
+
+
+    /* КОНТАКТЫ */
+
+    .contacts {
+        padding: 70px 0;
+    }
+
+    .contact-item {
+        padding: 25px;
+    }
+
+
+    /* АССОРТИМЕНТ */
+
+    .assortment-page {
+        padding: 65px 0 80px;
+    }
+
+    .assortment-page h1 {
+        font-size: 38px;
+    }
+
+    .assortment-intro {
+        font-size: 15px;
+    }
+
+    .product-list {
+        padding: 5px 15px;
+    }
+
+    .product {
+        padding: 0 5px;
+
+        font-size: 14px;
+    }
+
+    .product strong {
+        font-size: 14px;
+    }
+
+    .assortment-box-title {
+        padding: 18px 20px;
+
+        font-size: 14px;
+    }
+
+    .assortment-extra h2 {
+        font-size: 32px;
+    }
+
+
+    /* ПОДВАЛ */
+
+    .footer {
+        height: 60px;
     }
 }
